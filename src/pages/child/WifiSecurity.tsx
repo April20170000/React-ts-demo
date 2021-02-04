@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles, Theme, createStyles, Card, Grid, Typography, Chip, Switch } from '@material-ui/core';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import WifiHistory from './WifiHistroy';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import WifiHistory from './WifiHistory';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -30,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#fff',
             textTransform: 'uppercase'
         },
+        errchip: {
+            backgroundColor: '#db221f',
+        },
         borderBottom: {
             borderBottom: '1px solid rgba(0,0,0,.125)'
         }
@@ -40,32 +44,43 @@ const useStyles = makeStyles((theme: Theme) =>
 function WifiSecurity(props: any) {
     const [state, setState] = React.useState({
         checked: true,
+        statusText: props.checked?'Enabled':'Disabled'
     });
     const classes = useStyles();
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setState({checked: !state.checked});
-      };
+    const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setState({
+            checked: !state.checked,
+            statusText: event.target.checked?'Enabled':'Disabled'
+        });
+    };
+    const nodeRef = React.useRef(null);
     return (
         <Card>
             <Grid container className={classes.grayBg}>
-                <Grid container className={`${classes.borderBottom} px-3 py-2`}>
-                    <Grid item xs={9} className='d-flex align-items-center'>
-                        <CheckCircleIcon className='pr-3' style={{color: '#00893a', width: 'auto'}} />
+                <Grid container className={`${state.checked?classes.borderBottom:''} px-3 py-2`}>
+                    <Grid item xs={9} className='d-flex align-items-center' ref={nodeRef}>
+                        {
+                            state.checked?
+                            <CheckCircleIcon className='pr-3' style={{color: '#00893a', width: 'auto'}} />
+                            :
+                            <HighlightOffIcon className='pr-3' style={{color: '#db221f', width: 'auto'}}/>
+                        }
+                        
                         <Typography className={`${classes.title} ${classes.mainColor} pr-3`} variant="h5" noWrap>
                             {props.featureName}
                         </Typography>
-                        <Chip className={classes.chip} label={props.statusText} />
+                        <Chip className={`${classes.chip} ${state.checked?'':classes.errchip}`} label={state.statusText} />
                     </Grid>
                     <Grid item xs={3} className='text-right'>
                         <Switch
-                            color="default"
+                            color="primary"
                             checked={state.checked}
-                            onChange={handleChange}
+                            onChange={handleSwitchChange}
                             inputProps={{ 'aria-label': 'wifi checkbox' }}
                         />
                     </Grid>
                 </Grid>
-                <Grid container className='px-3'>
+                <Grid container className={`px-3 ${state.checked?'d-block':'d-none'}`}>
                     <WifiHistory />
                 </Grid>
             </Grid>

@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 export default function WifiPage() {
+    const texts = {
+        heading: 'Lenovo WiFi Security',
+        desc: 'Lenovo WiFi Security is currently monitoring your WiFi network.',
+        featureName: 'WIFI SECURITY'
+    }
     const [state, setState] = React.useState({
         checked: true,
     });
@@ -32,14 +37,14 @@ export default function WifiPage() {
     return (
         <Card className={classes.card}>
             <FeatureHeading 
-                heading={`Lenovo WiFi Security`}
-                desc={`Lenovo WiFi Security is currently monitoring your WiFi network.`}
+                heading={texts.heading}
+                desc={texts.desc}
                 icon={cornetIcon}
             >
             </FeatureHeading>
             <WifiSecurity
                 statusText={`enabled`}
-                featureName={`WIFI SECURITY`}
+                featureName={texts.featureName}
                 checked={state.checked} />
         </Card>
     )
