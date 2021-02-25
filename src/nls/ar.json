@@ -1,0 +1,20 @@
+{
+    "back": "back",
+    "pageTitle": "WiFi security",
+    "title": "أمان Lenovo WiFi",
+    "name": "أمان شبكة WIFI",
+    "enable": "ممكّن",
+    "disable": "معطل",
+    "less": "معلومات اقل",
+    "more": "معلومات أكثر",
+    "collapse": "طي",
+	"expand": "توسيع",
+    "networkHistory": "محفوظات الشبكة",
+    "connect": "الاتصال الأخير",
+    "showmore": "إظهار المزيد",
+    "showless": "إظهار أقل",
+    "button": "تمكين أمان شبكة WiFi",
+    "disableDescribe": "ميزة أمان Lenovo WiFi هي عبارة عن خدمة برمجية متقدمة تستند إلى السحابة والتي تساعد جهازك في تمييز الشبكات اللاسلكية الآمنة عن الشبكات الضارة المحتملة.",
+    "enabledDescribe": "تقوم ميزة أمان Lenovo WiFi بمراقبة شبكة WiFi لديك في الوقت الحالي.",
+    "message": "مرحبا! يتوفر إصدار أحدث من Vantage، هل تريد تحميله؟"
+}

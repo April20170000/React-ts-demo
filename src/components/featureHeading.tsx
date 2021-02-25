@@ -1,13 +1,11 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            flexGrow: 1,
-        },
         card: {
             padding: theme.spacing(2),
             textAlign: 'left',
@@ -23,13 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function FeatureHeading(props: any) {
+    const { t } = useTranslation();
     const classes = useStyles();
     return (
         <React.Fragment>
             <Grid container className={`justify-content-between align-items-center mb-3`}>
                 <Grid item xs>
                     <Typography className={`${classes.mainColor} `} variant="h4" noWrap>
-                        {props.heading}
+                        {t(props.heading)}
                     </Typography>
                 </Grid>
                 <Grid item xs={3} className={`text-center`}>

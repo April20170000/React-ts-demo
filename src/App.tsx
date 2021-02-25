@@ -1,16 +1,21 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import MenuBar from './components/menu';
 import PageContainer from './components/PageContainer';
-import WifiPage from './pages/WifiPage';
+import OtherPage from './pages/otherPage';
 
 function App() {
   return (
-    <div className="App">
-      <PageContainer>
-          <Route exact path="/" component={WifiPage}></Route>
-      </PageContainer>
-    </div>
+      <HashRouter>
+        <div className="App">
+          <MenuBar />
+          <Switch>
+            <Route exact path="/wifi" component={PageContainer}></Route>
+            <Route path="/other" component={OtherPage}></Route>
+          </Switch>
+        </div>
+      </HashRouter>
   );
 }
 

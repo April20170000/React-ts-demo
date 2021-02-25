@@ -8,6 +8,7 @@ import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import { AccountCircle } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -75,14 +76,16 @@ export default function MenuBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.bg}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+          <Link to="/wifi">
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="open drawer"
+              >
+              <MenuIcon />
+            </IconButton>
+          </Link>
           <Typography className={classes.title} variant="h6" noWrap>
             Menu placeholder
           </Typography>
@@ -99,14 +102,17 @@ export default function MenuBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                color="inherit"
-              >
+          <Link to="/other">
+
+            <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
                 <AccountCircle />
-              </IconButton>
+            </IconButton>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

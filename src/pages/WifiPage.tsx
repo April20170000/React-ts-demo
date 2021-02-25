@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import { Card } from '@material-ui/core';
+import { useTranslation } from "react-i18next";
 import WifiSecurity from './child/WifiSecurity';
 import FeatureHeading from '../components/featureHeading';
 import cornetIcon from '../assets/icons/coronet-logo.svg';
@@ -24,10 +25,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 export default function WifiPage() {
+    const { t } = useTranslation();
     const texts = {
-        heading: 'Lenovo WiFi Security',
-        desc: 'Lenovo WiFi Security is currently monitoring your WiFi network.',
-        featureName: 'WIFI SECURITY'
+        heading: t('title'),
+        desc: t('enabledDescribe'),
+        featureName: t('name')
     }
     const [state, setState] = React.useState({
         checked: true,
@@ -43,7 +45,7 @@ export default function WifiPage() {
             >
             </FeatureHeading>
             <WifiSecurity
-                statusText={`enabled`}
+                statusText={t('enable')}
                 featureName={texts.featureName}
                 checked={state.checked} />
         </Card>

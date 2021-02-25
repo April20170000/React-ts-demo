@@ -1,0 +1,20 @@
+{
+    "back": "السابق",
+    "pageTitle": "‏أمان WiFi",
+    "title": "Lenovo WiFi 安全",
+    "name": "WIFI 安全",
+    "enable": "已启用",
+    "disable": "已禁用",
+    "more": "更多信息",
+    "less": "缩略信息",
+    "collapse": "折叠",
+	"expand": "展开",
+    "networkHistory": "网络历史记录",
+    "connect": "最后连接",
+    "showmore": "显示更多内容",
+    "showless": "显示更少内容",
+    "button": "启用 WiFi 安全",
+    "disableDescribe": "Lenovo WiFi 安全是一项基于云的先进软件服务，可帮助您的设备区分安全的无线网络与潜在的恶意网络。",
+    "enabledDescribe": "Lenovo WiFi 安全目前正在监控您的 WiFi 网络。",
+    "message": "您好！已有较新版本的 Vantage，您要加载吗？"
+}

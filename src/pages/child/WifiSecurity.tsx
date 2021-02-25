@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import { makeStyles, Theme, createStyles, Card, Grid, Typography, Chip, Switch } from '@material-ui/core';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -42,15 +43,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 function WifiSecurity(props: any) {
+    const { t, i18n } = useTranslation();
     const [state, setState] = React.useState({
         checked: true,
-        statusText: props.checked?'Enabled':'Disabled'
+        statusText: props.checked?t('enable'):t('disable')
     });
     const classes = useStyles();
     const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setState({
             checked: !state.checked,
-            statusText: event.target.checked?'Enabled':'Disabled'
+            statusText: event.target.checked?t('enable'):t('disable')
         });
     };
     const nodeRef = React.useRef(null);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import { createStyles, makeStyles, Theme, withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -109,6 +110,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 export default function WifiHistory() {
+    const { t, i18n } = useTranslation();
+    console.log(i18n);
     const [state, setState] = React.useState({
         expand: true,
         isShowMore: false,
@@ -158,9 +161,9 @@ export default function WifiHistory() {
         <AccordionSummary
             aria-controls="panel1d-content"
             expandIcon={<ExpandMoreIcon />}>
-        <Typography>Network History</Typography>
+        <Typography>{t('networkHistory')}</Typography>
         <Grid  ref={nodeRef}>
-            <Typography className={classes.link}>{state.expand?'Collapse':'Expand'}</Typography>
+            <Typography className={classes.link}>{state.expand?t('collapse'):t('expand')}</Typography>
         </Grid>
         </AccordionSummary>
         <AccordionDetails>
@@ -199,7 +202,7 @@ export default function WifiHistory() {
         </AccordionDetails>
         <Grid container>
             <Button className={`link-button text-capitalize ${classes.link}`} onClick={clickShowMore}>
-                {state.isShowMore? <span>Show less</span> : <span>Show more</span>}
+                {state.isShowMore? <span>{t('showless')}</span> : <span>{t('showmore')}</span>}
             </Button>
         </Grid>
     </Accordion>

@@ -1,6 +1,6 @@
 import { makeStyles, Theme, createStyles, Grid, Paper, Container, Button, Typography } from "@material-ui/core";
 import React from "react";
-import MenuBar from "./menu";
+import { useTranslation } from "react-i18next";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import WifiPage from "../pages/WifiPage";
 
@@ -30,32 +30,30 @@ const useStyles = makeStyles((theme: Theme) =>
 function View() {
     const classes = useStyles();
     return (
-        <div className={`${classes.root} ${classes.shiftUp}`}>
-            <Grid container spacing={3} className={`px-5`}>
-                <Grid item xs={12} md={7} lg={8}>
-                    <WifiPage />
-                </Grid>
-                <Grid item xs={12} md={5} lg={4}>
-                    <Paper className={classes.paper}>
-                        右边的内容填充在此
-                    </Paper>
-                </Grid>
+        <Grid container spacing={3} className={`px-5 ${classes.root} ${classes.shiftUp}`}>
+            <Grid item xs={12} md={7} lg={8}>
+                <WifiPage />
             </Grid>
-        </div>
+            <Grid item xs={12} md={5} lg={4}>
+                <Paper className={classes.paper}>
+                    右边的内容填充在此
+                </Paper>
+            </Grid>
+        </Grid>
     )
 }
 
 export default function PageContainer(children: any) {
+    const { t } = useTranslation();
     const classes = useStyles();
     return (
         <Container maxWidth={false} className='p-0 m-0'>
-            <MenuBar />
             <div className={`${classes.header} px-5 pt-3 text-left`}>
                 <Button className={`${classes.whiteColor} link-button p-0 mb-3`}>
-                    <ArrowBackIcon />BACK
+                    <ArrowBackIcon />{t('back')}
                 </Button>
                 <Typography className={`${classes.whiteColor} `} variant="h3" noWrap>
-                    WiFi security
+                    {t('pageTitle')}
                 </Typography>
             </div>
             <View />
