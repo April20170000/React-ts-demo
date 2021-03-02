@@ -31,7 +31,7 @@ export default function WifiPage() {
         desc: t('enabledDescribe'),
         featureName: t('name')
     }
-    const [state, setState] = React.useState({
+    const [state ] = React.useState({
         checked: true,
     });
     const classes = useStyles();

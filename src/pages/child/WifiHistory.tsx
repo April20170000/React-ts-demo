@@ -110,8 +110,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 export default function WifiHistory() {
-    const { t, i18n } = useTranslation();
-    console.log(i18n);
+    const { t } = useTranslation();
     const [state, setState] = React.useState({
         expand: true,
         isShowMore: false,

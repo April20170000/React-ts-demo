@@ -7,9 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './i18n';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App />,
   document.getElementById('root')
 );
 

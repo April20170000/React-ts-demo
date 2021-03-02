@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { AccountCircle } from '@material-ui/icons';
+import { AccountCircle, Assignment } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -103,6 +103,9 @@ export default function MenuBar() {
             />
           </div>
           <Link to="/other">
+            <IconButton color="inherit"><Assignment /></IconButton>
+          </Link>
+          <Link to="/account">
 
             <IconButton
                   aria-label="account of current user"

@@ -28,7 +28,7 @@ export default function FeatureHeading(props: any) {
             <Grid container className={`justify-content-between align-items-center mb-3`}>
                 <Grid item xs>
                     <Typography className={`${classes.mainColor} `} variant="h4" noWrap>
-                        {t(props.heading)}
+                        {props.heading}
                     </Typography>
                 </Grid>
                 <Grid item xs={3} className={`text-center`}>

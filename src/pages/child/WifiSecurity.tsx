@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 function WifiSecurity(props: any) {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [state, setState] = React.useState({
         checked: true,
         statusText: props.checked?t('enable'):t('disable')
