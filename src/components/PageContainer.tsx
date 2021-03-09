@@ -2,7 +2,8 @@ import { makeStyles, Theme, createStyles, Grid, Paper, Container, Button, Typogr
 import React from "react";
 import { useTranslation } from "react-i18next";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import WifiPage from "../pages/WifiPage";
+import { routes } from "../route";
+import { Route, Switch } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         paper: {
             padding: theme.spacing(2),
-            textAlign: 'center',
+            textAlign: 'left',
             color: theme.palette.text.secondary,
         },
         header: {
@@ -32,18 +33,34 @@ function View() {
     return (
         <Grid container spacing={3} className={`px-5 ${classes.root} ${classes.shiftUp}`}>
             <Grid item xs={12} md={7} lg={8}>
-                <WifiPage />
+                <Paper className={classes.paper}>
+                    <Switch>
+                        {routes.map((route, index) => (
+                            <Route key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                children={route.left} />
+                        ))}
+                    </Switch>
+                </Paper>
             </Grid>
             <Grid item xs={12} md={5} lg={4}>
                 <Paper className={classes.paper}>
-                    右边的内容填充在此
+                    <Switch>
+                        {routes.map((route, index) => (
+                            <Route key={index}
+                                path={route.path}
+                                exact={route.exact}
+                                children={<route.right />} />
+                        ))}
+                    </Switch>
                 </Paper>
             </Grid>
         </Grid>
     )
 }
 
-export default function PageContainer(children: any) {
+export default function PageContainer() {
     const { t } = useTranslation();
     const classes = useStyles();
     return (

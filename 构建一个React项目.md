@@ -1,13 +1,13 @@
 ### 构建一个React项目
-  >
-  >1. `npm install -g creat-react-app`
+  
+  >1. `npm install -g create-react-app`
   >2. `npx create-react-app my-app --template typescript`
     将会得到一个后缀为.tsx的react项目
   >3. `npm start`
 
 ### 配置
 
-  >插件类，tslint ...
+  >插件类，ESLint ...
 
 ### 安装所需的package，以及相应的@type
 
@@ -183,12 +183,10 @@ function Child({ name }: {name: string | null}) {
 
 ### 多语言支持: i18next
 
-```python
-    npm install react-i18next i18next --save
+`npm install react-i18next i18next --save`
 
-    如果需要检测当前浏览器的语言或者从服务器获取配置资源可以安装下面依赖
-    npm install i18next-http-backend i18next-browser-languagedetector --save
-```
+如果需要检测当前浏览器的语言或者从服务器获取配置资源可以安装下面依赖
+`npm install i18next-http-backend i18next-browser-languagedetector --save`
 
 1. 多语言文件支持json, js格式
 
@@ -283,5 +281,5 @@ export default function OtherPage() {
 ### Build
 
 >`npm run build`
-生成一个build文件夹，只会编译需要的文件，没有使用到的文件不会进行编译打包。
+生成一个build文件夹，在build/static文件夹里包含了JS和CSS文件，每个文件名包含了文件内容的唯一哈希；只会编译需要的文件，没有使用到的文件不会进行编译打包。
 
