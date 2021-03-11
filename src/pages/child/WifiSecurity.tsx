@@ -67,14 +67,14 @@ function WifiSecurity(props: any) {
                             :
                             <HighlightOffIcon className='pr-3' style={{color: '#db221f', width: 'auto'}}/>
                         }
-                        
+
                         <Typography className={`${classes.title} ${classes.mainColor} pr-3`} variant="h5" noWrap>
                             {props.featureName}
                         </Typography>
-                        <Chip className={`${classes.chip} ${state.checked?'':classes.errchip}`} label={state.statusText} />
+                        <Chip className={`${classes.chip} ${state.checked?'':classes.errchip}`} data-testid="status" label={state.statusText} />
                     </Grid>
                     <Grid item xs={3} className='text-right'>
-                        <Switch
+                        <Switch data-testid="switch"
                             color="primary"
                             checked={state.checked}
                             onChange={handleSwitchChange}
