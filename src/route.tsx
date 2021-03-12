@@ -1,30 +1,34 @@
 import WifiPage from "./pages/WifiPage";
 import OtherPage from "./pages/otherPage";
-import QueryParamsExample from "./pages/routeExample";
+import QueryParamsExample from "./pages/accountPage";
 
-export interface RouteType {
+export interface menuItem {
   path: string,
   exact?: boolean,
   left: JSX.Element,
-  right: () => JSX.Element | JSX.Element
+  right: JSX.Element,
+  title: string,
 }
-export const routes:RouteType[] = [
+export const menu:menuItem[] = [
     {
       path: "/wifi",
       exact: false,
       left: <WifiPage />,
-      right: () => <h2>wifi page right view</h2>,
+      right: <h2>wifi page right view</h2>,
+      title: 'pageTitle',
     },
     {
       path: "/other",
-      exact: false,
+      exact: true,
       left: <OtherPage />,
-      right: () => <h2>other page right view</h2>
+      right: <h2>other page right view</h2>,
+      title: 'otherPageTitle',
     },
     {
       path: "/account",
-      exact: false,
+      exact: true,
       left: <QueryParamsExample />,
-      right: () => <h2>Shoelaces</h2>
+      right: <h2>account page right view</h2>,
+      title: 'accountPageTitle',
     }
 ];

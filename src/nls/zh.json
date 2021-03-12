@@ -16,5 +16,7 @@
     "button": "启用 WiFi 安全",
     "disableDescribe": "Lenovo WiFi 安全是一项基于云的先进软件服务，可帮助您的设备区分安全的无线网络与潜在的恶意网络。",
     "enabledDescribe": "Lenovo WiFi 安全目前正在监控您的 WiFi 网络。",
-    "message": "您好！已有较新版本的 Vantage，您要加载吗？"
+    "message": "您好！已有较新版本的 Vantage，您要加载吗？",
+    "otherPageTitle": "其他界面",
+    "accountPageTitle": "账户界面"
 }

@@ -1,9 +1,9 @@
 import { makeStyles, Theme, createStyles, Grid, Paper, Container, Button, Typography } from "@material-ui/core";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { routes } from "../route";
-import { Route, Switch } from "react-router-dom";
+import { menu } from "../route";
+import { Route, Switch, useHistory} from "react-router-dom";
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,7 +35,7 @@ function View() {
             <Grid item xs={12} md={7} lg={8}>
                 <Paper className={classes.paper}>
                     <Switch>
-                        {routes.map((route, index) => (
+                        {menu.map((route, index) => (
                             <Route key={index}
                                 path={route.path}
                                 exact={route.exact}
@@ -47,11 +47,11 @@ function View() {
             <Grid item xs={12} md={5} lg={4}>
                 <Paper className={classes.paper}>
                     <Switch>
-                        {routes.map((route, index) => (
+                        {menu.map((route, index) => (
                             <Route key={index}
                                 path={route.path}
                                 exact={route.exact}
-                                children={<route.right />} />
+                                children={route.right} />
                         ))}
                     </Switch>
                 </Paper>
@@ -63,15 +63,28 @@ function View() {
 export default function PageContainer() {
     const { t } = useTranslation();
     const classes = useStyles();
+    let history = useHistory();
+    const back = () => {
+        history.goBack();
+    }
     return (
         <Container maxWidth={false} className='p-0 m-0'>
             <div className={`${classes.header} px-5 pt-3 text-left`}>
-                <Button className={`${classes.whiteColor} link-button p-0 mb-3`}>
+                <Button className={`${classes.whiteColor} link-button p-0 mb-3`}
+                    onClick={back}>
                     <ArrowBackIcon />{t('back')}
                 </Button>
-                <Typography className={`${classes.whiteColor} `} variant="h3" noWrap>
-                    {t('pageTitle')}
-                </Typography>
+                <Switch>
+                    {menu.map((route, index) => (
+                        <Route key={index}
+                            path={route.path}
+                            exact={route.exact}>
+                            <Typography key={`title-${index}`} className={`${classes.whiteColor} `} variant="h3" noWrap>
+                                {t(route.title)}
+                            </Typography>
+                        </Route>
+                    ))}
+                </Switch>
             </div>
             <View />
         </Container>
