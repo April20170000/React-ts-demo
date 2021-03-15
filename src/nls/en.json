@@ -16,5 +16,7 @@
     "button": "Enable WiFi security",
     "disableDescribe": "Lenovo WiFi Security is an advanced cloud-based software service that helps your device differentiate safe wireless networks from potentially malicious ones.",
     "enabledDescribe": "Lenovo WiFi Security is currently monitoring your WiFi network.",
-    "message": "Hey! A newer version of Vantage is available, do you want to load it?"
+    "message": "Hey! A newer version of Vantage is available, do you want to load it?",
+    "otherPageTitle": "Other page",
+    "accountPageTitle": "Account page"
 }

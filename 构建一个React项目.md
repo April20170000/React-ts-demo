@@ -689,7 +689,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search); // 返回了一个URLSearchParams对象
 }
 
-function QueryParamsDemo() {
+function AccountPage() {
   let query: URLSearchParams = useQuery();
 
   return (
@@ -752,7 +752,7 @@ i18n
     debug: true,
     resources: resources,
     interpolation: {
-    escapeValue: false,
+        escapeValue: false,
     }
 });
 export default i18n;
